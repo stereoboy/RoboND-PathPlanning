@@ -32,7 +32,7 @@ int main(int argc, char** argv){
   goal.target_pose.pose.position.y = 3.75;
   goal.target_pose.pose.orientation = tf::createQuaternionMsgFromYaw(M_PI/2.0);
 
-   // Send the goal position and orientation for the robot to reach
+  // Send the goal position and orientation for the robot to reach
   ROS_INFO("[ROBOT] Sending goal");
   ac.sendGoal(goal);
   ROS_INFO("[ROBOT] Move...");
@@ -58,7 +58,7 @@ int main(int argc, char** argv){
   goal.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach
-  goal.target_pose.pose.position.x = 0.0;
+  goal.target_pose.pose.position.x = 3.75;
   goal.target_pose.pose.position.y = 0.0;
   goal.target_pose.pose.orientation = tf::createQuaternionMsgFromYaw(-M_PI/2.0);
 
