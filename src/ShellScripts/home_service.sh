@@ -11,5 +11,7 @@ xterm  -e  " source $ABS_DEVEL_PATH/setup.bash ; roslaunch turtlebot_gazebo amcl
 sleep 2
 xterm  -e  " source $ABS_DEVEL_PATH/setup.bash ; roslaunch turtlebot_rviz_launchers view_navigation.launch" &
 sleep 2
-xterm  -e  " source $ABS_DEVEL_PATH/setup.bash ; rosrun add_markers add_markers_node2"
+xterm  -e  " source $ABS_DEVEL_PATH/setup.bash ; rosrun add_markers add_markers_node2" &
+sleep 2
+xterm  -e  " source $ABS_DEVEL_PATH/setup.bash ; rosrun pick_objects pick_objects_node"
 sleep 2
