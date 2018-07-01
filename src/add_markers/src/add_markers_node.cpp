@@ -74,11 +74,6 @@ int main( int argc, char** argv )
   ROS_INFO("[MARKER] Marker hides...");
   marker.header.stamp = ros::Time::now();
 
-  // Set the namespace and id for this marker.  This serves to create a unique ID
-  // Any marker sent with the same namespace and id will overwrite the old one
-  marker.ns = "basic_shapes";
-  marker.id = 0;
-
   // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
   marker.action = visualization_msgs::Marker::DELETE;
   marker_pub.publish(marker);
@@ -91,14 +86,6 @@ int main( int argc, char** argv )
   //-----------------------------------------------
   ROS_INFO("[MARKER] Marker shows up at the DROP-OFF ZONE");
   marker.header.stamp = ros::Time::now();
-
-  // Set the namespace and id for this marker.  This serves to create a unique ID
-  // Any marker sent with the same namespace and id will overwrite the old one
-  marker.ns = "basic_shapes";
-  marker.id = 0;
-
-  // Set the marker type.  Initially this is CUBE, and cycles between that and SPHERE, ARROW, and CYLINDER
-  marker.type = shape;
 
   // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
   marker.action = visualization_msgs::Marker::ADD;
@@ -125,16 +112,6 @@ int main( int argc, char** argv )
 
   marker.lifetime = ros::Duration();
 
-  // Publish the marker
-  while (marker_pub.getNumSubscribers() < 1)
-  {
-    if (!ros::ok())
-    {
-      return 0;
-    }
-    ROS_WARN_ONCE("Please create a subscriber to the marker");
-    sleep(1);
-  }
   marker_pub.publish(marker);
 
   // to prevent the terminal from closing up
